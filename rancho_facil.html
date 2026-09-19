@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rancho Fácil</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f1e8;color:#24351f}
+header{background:#294d2b;color:white;padding:28px 18px;text-align:center}
+header h1{margin:0;font-size:34px}header p{margin:8px 0 0}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;background:#1e3820;padding:12px}
+nav a{color:white;text-decoration:none;padding:9px 13px;border-radius:8px}
+nav a:hover{background:#426b45}
+.hero{max-width:1050px;margin:28px auto;padding:35px 22px;text-align:center;background:white;border-radius:18px;box-shadow:0 4px 18px #0001}
+.hero h2{font-size:30px;margin:0 0 10px}.hero p{font-size:18px}
+.grid{max-width:1050px;margin:20px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:0 15px}
+.card{background:white;padding:22px;border-radius:15px;box-shadow:0 3px 12px #0001}.card h3{margin-top:0}
+.calculator{max-width:600px;margin:30px auto;background:white;padding:25px;border-radius:18px;box-shadow:0 4px 18px #0001}
+label{display:block;margin-top:12px;font-weight:bold}input{width:100%;padding:12px;margin-top:6px;border:1px solid #bbb;border-radius:8px;font-size:16px}
+button{margin-top:18px;width:100%;padding:13px;border:0;border-radius:9px;background:#294d2b;color:white;font-size:17px;cursor:pointer}
+#resultado{margin-top:18px;padding:15px;background:#eef5e9;border-radius:10px;font-weight:bold}
+footer{text-align:center;background:#1e3820;color:white;padding:25px;margin-top:40px}
+.small{font-size:13px;color:#666}
+</style>
+</head>
+<body>
+<header>
+<h1>🐄 Rancho Fácil</h1>
+<p>Información práctica para el cuidado y manejo del ganado</p>
+</header>
+
+<nav>
+<a href="#inicio">Inicio</a><a href="#ganado">Ganado</a><a href="#alimentacion">Alimentación</a>
+<a href="#calculadora">Calculadora</a><a href="#consejos">Consejos</a>
+</nav>
+
+<section class="hero" id="inicio">
+<h2>Todo para hacer más fácil el trabajo del rancho</h2>
+<p>Guías sencillas, herramientas y consejos para productores y personas que trabajan con ganado.</p>
+</section>
+
+<section class="grid">
+<div class="card" id="ganado"><h3>🐮 Ganado bovino</h3><p>Aprende sobre razas, manejo, reproducción, identificación y cuidados básicos.</p></div>
+<div class="card" id="alimentacion"><h3>🌽 Alimentación</h3><p>Consulta información general sobre forrajes, agua, minerales y alimentación según la etapa del animal.</p></div>
+<div class="card"><h3>🩺 Salud y prevención</h3><p>Información educativa para reconocer problemas comunes y saber cuándo acudir con un veterinario.</p></div>
+<div class="card" id="consejos"><h3>📚 Consejos</h3><p>Artículos sencillos sobre prácticas de manejo, higiene y bienestar animal.</p></div>
+</section>
+
+<section class="calculator" id="calculadora">
+<h2>🧮 Calculadora de consumo de alimento</h2>
+<p>Estimación educativa. El consumo real depende de la edad, etapa productiva, dieta y calidad del alimento.</p>
+<label>Peso del animal (kg)
+<input id="peso" type="number" min="1" placeholder="Ej. 300"></label>
+<label>Porcentaje estimado de materia seca (% del peso vivo)
+<input id="porcentaje" type="number" min="0.5" max="5" step="0.1" value="2.5"></label>
+<button onclick="calcular()">Calcular</button>
+<div id="resultado">Introduce los datos para obtener una estimación.</div>
+<p class="small">No sustituye la valoración de un veterinario o nutriólogo especializado en ganado.</p>
+</section>
+
+<footer>
+<p>Rancho Fácil © 2026</p>
+<p>Proyecto inicial — posteriormente puedes agregar anuncios, directorio de negocios y contenido premium.</p>
+</footer>
+
+<script>
+function calcular(){
+ const peso=parseFloat(document.getElementById('peso').value);
+ const pct=parseFloat(document.getElementById('porcentaje').value);
+ const r=document.getElementById('resultado');
+ if(!peso || !pct || peso<=0 || pct<=0){r.textContent="Escribe un peso y un porcentaje válidos.";return;}
+ const kg=peso*pct/100;
+ r.textContent=`Estimación: ${kg.toFixed(2)} kg de materia seca al día.`;
+}
+</script>
+</body>
+</html>
