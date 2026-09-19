@@ -1,61 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Rancho Fácil: herramientas, calculadoras y recursos para ganaderos.">
-<title>Rancho Fácil | Herramientas para ganaderos</title>
-<style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:#f4f7f2;color:#263528;line-height:1.5}
-header{background:linear-gradient(135deg,#214b2a,#4a8150);color:white;padding:34px 18px;text-align:center}header h1{margin:0;font-size:38px}header p{margin:6px 0}
-nav{background:#17371d;padding:11px;text-align:center;position:sticky;top:0;z-index:20}nav a{color:#fff;text-decoration:none;margin:0 8px;font-weight:bold;font-size:14px}
-.container{max-width:1100px;margin:auto;padding:18px}.hero,.card,.tool{background:#fff;border-radius:18px;padding:22px;box-shadow:0 3px 12px #00000012;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.ad{border:2px dashed #9aa89c;border-radius:14px;padding:22px;text-align:center;color:#667268;background:#fafcf9;margin:18px 0}
-input,select{width:100%;padding:12px;margin:6px 0 12px;border:1px solid #bbc5bd;border-radius:9px;font-size:16px}
-button,.btn{border:0;border-radius:9px;padding:11px 15px;background:#2f6b39;color:white;font-size:15px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
-.result{margin-top:12px;padding:13px;border-radius:10px;background:#edf5ee;font-weight:bold;display:none}.small{font-size:13px;color:#667268}.tag{display:inline-block;background:#edf5ee;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:bold}
-.search{max-width:650px;margin:15px auto}.search input{margin:0}.hidden{display:none!important}.notice{padding:14px;background:#eef5ef;border-left:5px solid #397044;border-radius:8px}
-footer{background:#17371d;color:white;text-align:center;padding:26px;margin-top:25px}@media(max-width:600px){header h1{font-size:29px}nav a{display:inline-block;margin:5px}.container{padding:12px}}
-</style></head><body>
-<header><h1>🐄 Rancho Fácil</h1><p>Herramientas sencillas para el trabajo del campo</p></header>
-<nav><a href="#inicio">Inicio</a><a href="#herramientas">Herramientas</a><a href="#ganado">Ganado</a><a href="#productos">Productos</a><a href="#consejos">Consejos</a><a href="#contacto">Contacto</a></nav>
-<main class="container">
-<section id="inicio" class="hero"><span class="tag">VERSIÓN 7</span><h2>🌾 Tu centro digital para el rancho</h2><p>Calculadoras, herramientas, productos y espacios preparados para hacer crecer Rancho Fácil.</p>
-<div class="search"><input id="busqueda" type="search" placeholder="🔎 Buscar: peso, alimento, ganado..." oninput="buscar()"></div></section>
-<section id="herramientas"><h2>🧮 Herramientas</h2><div class="grid" id="toolsGrid">
-<div class="tool searchable"><h3>🐂 Peso aproximado</h3><p>Estimación mediante perímetro de pecho y largo corporal.</p><input id="p6a" type="number" placeholder="Perímetro pecho (cm)"><input id="l6a" type="number" placeholder="Largo (cm)"><button onclick="peso6()">Calcular</button><div id="r6a" class="result"></div></div>
-<div class="tool searchable"><h3>🌾 Materia seca</h3><p>Estimación educativa según peso vivo.</p><input id="p6b" type="number" placeholder="Peso (kg)"><input id="m6b" type="number" value="2.5" step=".1" placeholder="Materia seca %"><button onclick="ms6()">Calcular</button><div id="r6b" class="result"></div></div>
-<div class="tool searchable"><h3>💰 Costo de alimento</h3><input id="k6c" type="number" placeholder="Kg por día"><input id="pr6c" type="number" step=".01" placeholder="Precio por kg ($)"><button onclick="costo6()">Calcular</button><div id="r6c" class="result"></div></div>
-<div class="tool searchable"><h3>📈 Ganancia diaria</h3><input id="i6d" type="number" placeholder="Peso inicial (kg)"><input id="f6d" type="number" placeholder="Peso final (kg)"><input id="d6d" type="number" placeholder="Días"><button onclick="gan6()">Calcular</button><div id="r6d" class="result"></div></div>
-<div class="tool searchable"><h3>💵 Valor estimado</h3><input id="p6e" type="number" placeholder="Peso (kg)"><input id="q6e" type="number" placeholder="Precio por kg ($)"><button onclick="val6()">Calcular</button><div id="r6e" class="result"></div></div>
-<div class="tool searchable"><h3>📅 Fecha de seguimiento</h3><p>Consulta cuántos días han pasado desde una fecha.</p><input id="fecha6" type="date"><button onclick="dias6()">Calcular días</button><div id="r6f" class="result"></div></div>
-</div></section>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Rancho Fácil: herramientas digitales para el campo y ganadería."><title>Rancho Fácil V8</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:#f4f7f2;color:#263528;line-height:1.5}header{background:linear-gradient(135deg,#214b2a,#4a8150);color:white;padding:32px 18px;text-align:center}header h1{margin:0;font-size:36px}nav{background:#17371d;padding:11px;text-align:center;position:sticky;top:0;z-index:9}nav a{color:#fff;text-decoration:none;margin:0 8px;font-weight:bold;font-size:14px}.wrap{max-width:1100px;margin:auto;padding:18px}.card,.hero,.tool{background:#fff;border-radius:18px;padding:20px;box-shadow:0 3px 12px #0001;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.ad{border:2px dashed #9aa89c;padding:20px;text-align:center;border-radius:14px;margin:18px 0;color:#667268}.btn,button{background:#2f6b39;color:white;border:0;border-radius:9px;padding:11px 15px;font-weight:bold;cursor:pointer}.btn{text-decoration:none;display:inline-block}input,select{width:100%;padding:11px;margin:6px 0 12px;border:1px solid #bbc5bd;border-radius:9px;font-size:16px}.result{display:none;margin-top:10px;padding:12px;background:#edf5ee;border-radius:9px;font-weight:bold}.small{font-size:13px;color:#667268}.tag{background:#edf5ee;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:bold}footer{background:#17371d;color:#fff;text-align:center;padding:24px}@media(max-width:600px){header h1{font-size:29px}.wrap{padding:12px}nav a{display:inline-block;margin:5px}}</style></head><body>
+<header><h1>🐄 Rancho Fácil</h1><p>Herramientas digitales para el trabajo del campo</p></header>
+<nav><a href="#inicio">Inicio</a><a href="#herramientas">Herramientas</a><a href="#ganado">Ganado</a><a href="#registro">Registro</a><a href="#productos">Productos</a><a href="#contacto">Contacto</a></nav>
+<main class="wrap">
+<section id="inicio" class="hero"><span class="tag">VERSIÓN 8</span><h2>📊 Control sencillo del ganado</h2><p>Ahora puedes llevar registros básicos de animales directamente en tu navegador.</p></section>
+<section id="herramientas"><h2>🧮 Herramientas</h2><div class="grid">
+<div class="tool"><h3>🐂 Peso</h3><input id="p" type="number" placeholder="Perímetro pecho (cm)"><input id="l" type="number" placeholder="Largo (cm)"><button onclick="peso()">Calcular</button><div id="rp" class="result"></div></div>
+<div class="tool"><h3>🌾 Alimento</h3><input id="pa" type="number" placeholder="Peso (kg)"><input id="ms" type="number" value="2.5" step=".1"><button onclick="alimento()">Calcular</button><div id="ra" class="result"></div></div>
+<div class="tool"><h3>💰 Costo</h3><input id="kg" type="number" placeholder="Kg/día"><input id="precio" type="number" step=".01" placeholder="Precio/kg"><button onclick="costo()">Calcular</button><div id="rc" class="result"></div></div></div></section>
 <div class="ad">📢 ESPACIO PUBLICITARIO</div>
-<section id="ganado"><h2>🐄 Ganado</h2><div class="grid"><div class="card searchable"><h3>🥩 Bovinos</h3><p>Información básica sobre peso, alimentación y manejo.</p></div><div class="card searchable"><h3>🩺 Salud</h3><p>Observa apetito, comportamiento, condición corporal y cambios fuera de lo normal.</p></div><div class="card searchable"><h3>💧 Agua</h3><p>El acceso a agua limpia es fundamental para el ganado.</p></div></div></section>
-<section id="productos"><h2>🛒 Productos</h2><div class="grid"><div class="card"><h3>🪢 Equipo</h3><p>Espacio para futuros enlaces de productos.</p><button onclick="alert('Aquí podrás colocar tu enlace cuando tengas uno.')">Ver</button></div><div class="card"><h3>🌾 Alimentación</h3><p>Espacio para herramientas y productos.</p><button onclick="alert('Aquí podrás colocar tu enlace cuando tengas uno.')">Ver</button></div><div class="card"><h3>🧰 Herramientas</h3><p>Artículos útiles para el rancho.</p><button onclick="alert('Aquí podrás colocar tu enlace cuando tengas uno.')">Ver</button></div></div></section>
-<section id="consejos"><h2>💡 Consejos</h2><div class="grid"><div class="card"><h3>👀 Observa</h3><p>Revisa regularmente el comportamiento y condición del ganado.</p></div><div class="card"><h3>📋 Registra</h3><p>Lleva registros de pesos, alimentación y fechas para comparar cambios.</p></div><div class="card"><h3>🩺 Consulta</h3><p>Ante signos de enfermedad, busca atención de un profesional veterinario.</p></div></div></section>
-<section id="contacto" class="hero"><h2>📱 Contacto</h2><p>Área preparada para agregar WhatsApp, correo o redes.</p><button onclick="alert('Aquí podrás agregar tus datos de contacto.')">Configurar contacto</button></section>
-
-<section id="panel" class="hero">
-<h2>⭐ Mi panel</h2>
-<p>Guarda una nota rápida en este dispositivo. No se envía a ningún servidor.</p>
-<input id="nota" placeholder="Ej. Lote 1: revisar peso el viernes">
-<button onclick="guardarNota()">Guardar nota</button>
-<button onclick="borrarNota()">Borrar</button>
-<div id="notaResult" class="result"></div>
-</section>
-<div class="notice"><strong>⚠️ Nota:</strong> Las herramientas son estimaciones educativas y no sustituyen la valoración de un médico veterinario o especialista.</div>
-</main><footer><strong>🐄 Rancho Fácil V7</strong><br>Herramientas educativas para el campo.</footer>
-<script>
-function show(id,t){let e=document.getElementById(id);e.innerHTML=t;e.style.display='block'}
-function n(id){return parseFloat(document.getElementById(id).value)}
-function peso6(){let a=n('p6a'),b=n('l6a');if(a>0&&b>0)show('r6a','Peso estimado: '+((a*a*b)/10840).toFixed(1)+' kg');else alert('Ingresa valores válidos.')}
-function ms6(){let a=n('p6b'),b=n('m6b');if(a>0&&b>0)show('r6b','Materia seca estimada: '+(a*b/100).toFixed(1)+' kg/día');else alert('Ingresa valores válidos.')}
-function costo6(){let a=n('k6c'),b=n('pr6c');if(a>0&&b>0){let x=a*b;show('r6c','Costo diario: $'+x.toFixed(2)+'<br>30 días: $'+(x*30).toFixed(2))}else alert('Ingresa valores válidos.')}
-function gan6(){let a=n('i6d'),b=n('f6d'),c=n('d6d');if(a>=0&&b>a&&c>0)show('r6d','Ganancia total: '+(b-a).toFixed(1)+' kg<br>Promedio: '+((b-a)/c).toFixed(2)+' kg/día');else alert('Revisa los datos.')}
-function val6(){let a=n('p6e'),b=n('q6e');if(a>0&&b>0)show('r6e','Valor estimado: $'+(a*b).toFixed(2));else alert('Ingresa valores válidos.')}
-function dias6(){let v=document.getElementById('fecha6').value;if(!v){alert('Elige una fecha.');return}let d=Math.floor((Date.now()-new Date(v+'T00:00:00'))/86400000);show('r6f',d>=0?'Han pasado '+d+' días.':'La fecha todavía no ha llegado.')}
-function guardarNota(){let x=document.getElementById('nota').value.trim();if(!x){alert('Escribe una nota.');return}localStorage.setItem('ranchoNota',x);show('notaResult','Nota guardada en este dispositivo.');}
-function borrarNota(){localStorage.removeItem('ranchoNota');document.getElementById('nota').value='';show('notaResult','Nota borrada.');}
-window.addEventListener('load',()=>{let x=localStorage.getItem('ranchoNota');if(x){document.getElementById('nota').value=x;show('notaResult','Nota guardada: '+x)}});
-function buscar(){let q=document.getElementById('busqueda').value.toLowerCase().trim();document.querySelectorAll('.searchable').forEach(e=>e.classList.toggle('hidden',q&&!e.innerText.toLowerCase().includes(q)))}
-</script></body></html>
+<section id="ganado" class="card"><h2>🐄 Información</h2><p>Registra datos básicos y consulta con un profesional ante problemas de salud.</p></section>
+<section id="registro" class="hero"><h2>📋 Registro rápido</h2><input id="nombre" placeholder="Nombre o número del animal"><input id="pesoReg" type="number" placeholder="Peso (kg)"><input id="fechaReg" type="date"><button onclick="guardar()">Guardar registro</button><div id="lista"></div></section>
+<section id="productos"><h2>🛒 Productos</h2><div class="grid"><div class="card"><h3>🪢 Equipo</h3><p>Área preparada para futuros enlaces.</p></div><div class="card"><h3>🌾 Alimentación</h3><p>Área preparada para futuros enlaces.</p></div></div></section>
+<section id="contacto" class="card"><h2>📱 Contacto</h2><p>Área preparada para WhatsApp, correo o redes.</p></section></main><footer>🐄 Rancho Fácil V8<br><span class="small">Herramientas educativas para el campo.</span></footer><script>function sh(id,t){let e=document.getElementById(id);e.innerHTML=t;e.style.display='block'}function n(id){return parseFloat(document.getElementById(id).value)}
+function peso(){let a=n('p'),b=n('l');if(a>0&&b>0)sh('rp','Peso estimado: '+((a*a*b)/10840).toFixed(1)+' kg');else alert('Ingresa datos válidos.')}
+function alimento(){let a=n('pa'),b=n('ms');if(a>0&&b>0)sh('ra','Materia seca estimada: '+(a*b/100).toFixed(1)+' kg/día');else alert('Ingresa datos válidos.')}
+function costo(){let a=n('kg'),b=n('precio');if(a>0&&b>0)sh('rc','Costo diario: $'+(a*b).toFixed(2)+'<br>30 días: $'+(a*b*30).toFixed(2));else alert('Ingresa datos válidos.')}
+let registros=JSON.parse(localStorage.getItem('rf8')||'[]');function guardar(){let a=document.getElementById('nombre').value.trim(),b=n('pesoReg'),c=document.getElementById('fechaReg').value;if(!a||!b||!c){alert('Completa los datos.');return}registros.push({a,b,c});localStorage.setItem('rf8',JSON.stringify(registros));mostrar()}
+function mostrar(){document.getElementById('lista').innerHTML=registros.map((x,i)=>'<p>🐄 <b>'+x.a+'</b> — '+x.b+' kg — '+x.c+' <button onclick="del('+i+')">Borrar</button></p>').join('')}function del(i){registros.splice(i,1);localStorage.setItem('rf8',JSON.stringify(registros));mostrar()}mostrar();</script></body></html>
