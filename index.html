@@ -19,7 +19,7 @@ footer{background:#17371d;color:white;text-align:center;padding:26px;margin-top:
 <header><h1>🐄 Rancho Fácil</h1><p>Herramientas sencillas para el trabajo del campo</p></header>
 <nav><a href="#inicio">Inicio</a><a href="#herramientas">Herramientas</a><a href="#ganado">Ganado</a><a href="#productos">Productos</a><a href="#consejos">Consejos</a><a href="#contacto">Contacto</a></nav>
 <main class="container">
-<section id="inicio" class="hero"><span class="tag">VERSIÓN 6</span><h2>🌾 Tu caja de herramientas para el rancho</h2><p>Busca una herramienta, usa una calculadora y encuentra información básica para el manejo del ganado.</p>
+<section id="inicio" class="hero"><span class="tag">VERSIÓN 7</span><h2>🌾 Tu centro digital para el rancho</h2><p>Calculadoras, herramientas, productos y espacios preparados para hacer crecer Rancho Fácil.</p>
 <div class="search"><input id="busqueda" type="search" placeholder="🔎 Buscar: peso, alimento, ganado..." oninput="buscar()"></div></section>
 <section id="herramientas"><h2>🧮 Herramientas</h2><div class="grid" id="toolsGrid">
 <div class="tool searchable"><h3>🐂 Peso aproximado</h3><p>Estimación mediante perímetro de pecho y largo corporal.</p><input id="p6a" type="number" placeholder="Perímetro pecho (cm)"><input id="l6a" type="number" placeholder="Largo (cm)"><button onclick="peso6()">Calcular</button><div id="r6a" class="result"></div></div>
@@ -34,8 +34,17 @@ footer{background:#17371d;color:white;text-align:center;padding:26px;margin-top:
 <section id="productos"><h2>🛒 Productos</h2><div class="grid"><div class="card"><h3>🪢 Equipo</h3><p>Espacio para futuros enlaces de productos.</p><button onclick="alert('Aquí podrás colocar tu enlace cuando tengas uno.')">Ver</button></div><div class="card"><h3>🌾 Alimentación</h3><p>Espacio para herramientas y productos.</p><button onclick="alert('Aquí podrás colocar tu enlace cuando tengas uno.')">Ver</button></div><div class="card"><h3>🧰 Herramientas</h3><p>Artículos útiles para el rancho.</p><button onclick="alert('Aquí podrás colocar tu enlace cuando tengas uno.')">Ver</button></div></div></section>
 <section id="consejos"><h2>💡 Consejos</h2><div class="grid"><div class="card"><h3>👀 Observa</h3><p>Revisa regularmente el comportamiento y condición del ganado.</p></div><div class="card"><h3>📋 Registra</h3><p>Lleva registros de pesos, alimentación y fechas para comparar cambios.</p></div><div class="card"><h3>🩺 Consulta</h3><p>Ante signos de enfermedad, busca atención de un profesional veterinario.</p></div></div></section>
 <section id="contacto" class="hero"><h2>📱 Contacto</h2><p>Área preparada para agregar WhatsApp, correo o redes.</p><button onclick="alert('Aquí podrás agregar tus datos de contacto.')">Configurar contacto</button></section>
+
+<section id="panel" class="hero">
+<h2>⭐ Mi panel</h2>
+<p>Guarda una nota rápida en este dispositivo. No se envía a ningún servidor.</p>
+<input id="nota" placeholder="Ej. Lote 1: revisar peso el viernes">
+<button onclick="guardarNota()">Guardar nota</button>
+<button onclick="borrarNota()">Borrar</button>
+<div id="notaResult" class="result"></div>
+</section>
 <div class="notice"><strong>⚠️ Nota:</strong> Las herramientas son estimaciones educativas y no sustituyen la valoración de un médico veterinario o especialista.</div>
-</main><footer><strong>🐄 Rancho Fácil V6</strong><br>Herramientas educativas para el campo.</footer>
+</main><footer><strong>🐄 Rancho Fácil V7</strong><br>Herramientas educativas para el campo.</footer>
 <script>
 function show(id,t){let e=document.getElementById(id);e.innerHTML=t;e.style.display='block'}
 function n(id){return parseFloat(document.getElementById(id).value)}
@@ -45,5 +54,8 @@ function costo6(){let a=n('k6c'),b=n('pr6c');if(a>0&&b>0){let x=a*b;show('r6c','
 function gan6(){let a=n('i6d'),b=n('f6d'),c=n('d6d');if(a>=0&&b>a&&c>0)show('r6d','Ganancia total: '+(b-a).toFixed(1)+' kg<br>Promedio: '+((b-a)/c).toFixed(2)+' kg/día');else alert('Revisa los datos.')}
 function val6(){let a=n('p6e'),b=n('q6e');if(a>0&&b>0)show('r6e','Valor estimado: $'+(a*b).toFixed(2));else alert('Ingresa valores válidos.')}
 function dias6(){let v=document.getElementById('fecha6').value;if(!v){alert('Elige una fecha.');return}let d=Math.floor((Date.now()-new Date(v+'T00:00:00'))/86400000);show('r6f',d>=0?'Han pasado '+d+' días.':'La fecha todavía no ha llegado.')}
+function guardarNota(){let x=document.getElementById('nota').value.trim();if(!x){alert('Escribe una nota.');return}localStorage.setItem('ranchoNota',x);show('notaResult','Nota guardada en este dispositivo.');}
+function borrarNota(){localStorage.removeItem('ranchoNota');document.getElementById('nota').value='';show('notaResult','Nota borrada.');}
+window.addEventListener('load',()=>{let x=localStorage.getItem('ranchoNota');if(x){document.getElementById('nota').value=x;show('notaResult','Nota guardada: '+x)}});
 function buscar(){let q=document.getElementById('busqueda').value.toLowerCase().trim();document.querySelectorAll('.searchable').forEach(e=>e.classList.toggle('hidden',q&&!e.innerText.toLowerCase().includes(q)))}
 </script></body></html>
