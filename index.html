@@ -1,1 +1,175 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rancho Fácil V3</title><style>body{font-family:Arial;margin:0;background:#f4f7f2;color:#24351f}header,footer{background:#183821;color:white;text-align:center;padding:25px}nav{text-align:center;background:#294a2b;padding:12px}nav a{color:white;margin:7px;text-decoration:none}.wrap{max-width:950px;margin:auto;padding:15px}.hero,.card,.calc{background:white;padding:22px;margin:18px 0;border-radius:15px;box-shadow:0 3px 12px #0001}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}input,button{width:100%;padding:12px;margin:7px 0;box-sizing:border-box}button{background:#294a2b;color:white;border:0;border-radius:8px;font-size:16px}.result{background:#e8f3e4;padding:13px;border-radius:8px;font-weight:bold}.ad{border:2px dashed #aaa;padding:25px;text-align:center;margin:25px 0}</style></head><body><header><h1>🐄 Rancho Fácil</h1><p>Herramientas sencillas para el rancho y el ganado</p></header><nav><a href="#ganado">Ganado</a><a href="#alimentacion">Alimentación</a><a href="#calculadoras">Calculadoras</a><a href="#consejos">Consejos</a></nav><div class="wrap"><section class="hero"><h2>Todo más fácil para el rancho 🌱</h2><p>Información práctica y calculadoras educativas para productores.</p></section><div class="ad">Espacio para publicidad — próximamente</div><h2 id="ganado">🐂 Ganado</h2><div class="grid"><div class="card"><h3>🐄 Bovinos</h3><p>Información básica sobre manejo, alimentación y cuidados.</p></div><div class="card"><h3>🐮 Terneros</h3><p>Observa comportamiento, apetito y condición general.</p></div><div class="card"><h3>🌾 Potreros</h3><p>Revisa agua, pasto e instalaciones regularmente.</p></div></div><h2 id="alimentacion">🌾 Alimentación</h2><div class="grid"><div class="card"><h3>Forrajes</h3><p>Los forrajes son una base importante de la alimentación de muchos bovinos.</p></div><div class="card"><h3>Agua</h3><p>El ganado necesita acceso a agua limpia; sus necesidades varían según las condiciones.</p></div><div class="card"><h3>Suplementos</h3><p>Deben usarse considerando las necesidades del animal y orientación profesional.</p></div></div><h2 id="calculadoras">🧮 Calculadoras</h2><div class="calc"><h3>1. 🐂 Peso estimado del bovino</h3><p>Usa perímetro torácico y longitud corporal.</p><label>Perímetro torácico (cm)</label><input id="pt" type="number" placeholder="Ej. 170"><label>Longitud corporal (cm)</label><input id="lc" type="number" placeholder="Ej. 150"><button onclick="peso()">Calcular peso</button><div id="rp" class="result">Introduce las medidas.</div><small>Fórmula orientativa: (perímetro² × longitud) ÷ 10,840.</small></div><div class="calc"><h3>2. 🌾 Cantidad estimada de alimento</h3><label>Peso del animal (kg)</label><input id="pa" type="number" placeholder="Ej. 450"><label>Materia seca estimada (%)</label><input id="ms" type="number" value="2.5" step=".1"><button onclick="alim()">Calcular alimento</button><div id="ra" class="result">Introduce los datos.</div></div><div class="calc"><h3>3. 💰 Costo diario de alimentación</h3><label>Alimento (kg/día)</label><input id="kg" type="number" step=".1" placeholder="Ej. 11.25"><label>Precio por kg (MXN)</label><input id="pr" type="number" step=".01" placeholder="Ej. 4.50"><button onclick="costo()">Calcular costo</button><div id="rc" class="result">Introduce los datos.</div></div><div class="card"><b>⚠️ Nota:</b> Estas herramientas son educativas y usan fórmulas simples. No sustituyen una ración profesional ni una evaluación veterinaria.</div><h2 id="consejos">📋 Consejos</h2><div class="grid"><div class="card"><h3>💧 Revisa el agua</h3><p>Mantén bebederos disponibles y limpios.</p></div><div class="card"><h3>👀 Observa al ganado</h3><p>Detectar cambios temprano ayuda a atender problemas.</p></div><div class="card"><h3>📝 Lleva registros</h3><p>Anota pesos, nacimientos, tratamientos y producción.</p></div><div class="card"><h3>🩺 Consulta profesionales</h3><p>Para problemas de salud o alimentación, busca asesoría veterinaria o zootécnica.</p></div></div><div class="ad">Espacio para publicidad — próximamente</div></div><footer>🐄 Rancho Fácil © 2026</footer><script>function n(x){return parseFloat(document.getElementById(x).value)}function peso(){let a=n('pt'),b=n('lc');document.getElementById('rp').textContent=a>0&&b>0?'Peso estimado: '+((a*a*b)/10840).toFixed(1)+' kg.':'Escribe las dos medidas.'}function alim(){let a=n('pa'),b=n('ms');document.getElementById('ra').textContent=a>0&&b>0?'Cantidad estimada: '+(a*b/100).toFixed(2)+' kg de materia seca/día.':'Escribe datos válidos.'}function costo(){let a=n('kg'),b=n('pr');document.getElementById('rc').textContent=a>=0&&b>=0?'Costo aproximado: $'+(a*b).toFixed(2)+' MXN al día; $'+(a*b*30).toFixed(2)+' en 30 días.':'Escribe datos válidos.'}</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rancho Fácil V4</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7f2;color:#263528}
+header{background:linear-gradient(135deg,#244d2b,#397044);color:white;padding:28px 18px;text-align:center}
+header h1{margin:0;font-size:34px}
+header p{margin:8px 0 0}
+nav{background:#18391f;padding:10px;text-align:center;position:sticky;top:0;z-index:5}
+nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold;font-size:14px}
+.container{max-width:1050px;margin:auto;padding:18px}
+.hero{background:white;border-radius:18px;padding:24px;margin-bottom:18px;box-shadow:0 3px 12px #00000012}
+.hero h2{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:white;border-radius:16px;padding:20px;box-shadow:0 3px 12px #00000012}
+.card h3{margin-top:0}
+.ad{border:2px dashed #9aa89c;border-radius:14px;padding:22px;text-align:center;color:#667268;background:#fafcf9;margin:18px 0}
+.calculator{background:white;border-radius:16px;padding:20px;margin:18px 0;box-shadow:0 3px 12px #00000012}
+input{width:100%;padding:12px;margin:7px 0 12px;border:1px solid #bbc5bd;border-radius:9px;font-size:16px}
+button{border:0;border-radius:9px;padding:12px 16px;background:#2f6b39;color:white;font-size:16px;font-weight:bold;cursor:pointer}
+button:hover{opacity:.9}
+.result{margin-top:14px;padding:14px;border-radius:10px;background:#edf5ee;font-weight:bold;display:none}
+.small{font-size:13px;color:#667268}
+.product{border:1px solid #dde5de}
+.product button{margin-top:8px}
+footer{background:#18391f;color:white;text-align:center;padding:24px;margin-top:25px}
+@media(max-width:600px){header h1{font-size:28px}nav a{display:inline-block;margin:5px 6px}.container{padding:12px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🐄 Rancho Fácil</h1>
+<p>Herramientas sencillas para el trabajo del campo</p>
+</header>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#calculadoras">Calculadoras</a>
+<a href="#ganado">Ganado</a>
+<a href="#productos">Productos</a>
+<a href="#consejos">Consejos</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+<main class="container">
+
+<section id="inicio" class="hero">
+<h2>🌾 Bienvenido a Rancho Fácil</h2>
+<p>Encuentra calculadoras, información y herramientas prácticas para el manejo del ganado y las actividades del rancho.</p>
+</section>
+
+<div class="ad">📢 ESPACIO PUBLICITARIO<br><span class="small">Aquí podrás colocar anuncios cuando tu página tenga publicidad.</span></div>
+
+<section id="calculadoras">
+<h2>🧮 Calculadoras del rancho</h2>
+
+<div class="calculator">
+<h3>🐂 Peso aproximado del ganado</h3>
+<p class="small">Ingresa el perímetro del pecho y el largo corporal en centímetros.</p>
+<label>Perímetro del pecho (cm)</label>
+<input id="pecho" type="number" placeholder="Ej. 170">
+<label>Largo corporal (cm)</label>
+<input id="largo" type="number" placeholder="Ej. 150">
+<button onclick="calcularPeso()">Calcular peso</button>
+<div id="pesoResult" class="result"></div>
+</div>
+
+<div class="calculator">
+<h3>🌾 Cantidad estimada de alimento</h3>
+<p class="small">Estimación educativa de materia seca según peso vivo.</p>
+<label>Peso del animal (kg)</label>
+<input id="pesoAlimento" type="number" placeholder="Ej. 400">
+<label>Porcentaje de materia seca (%)</label>
+<input id="ms" type="number" value="2.5" step="0.1">
+<button onclick="calcularAlimento()">Calcular alimento</button>
+<div id="alimentoResult" class="result"></div>
+</div>
+
+<div class="calculator">
+<h3>💰 Costo de alimentación</h3>
+<label>Alimento por día (kg)</label>
+<input id="kgDia" type="number" placeholder="Ej. 10">
+<label>Precio por kg ($)</label>
+<input id="precioKg" type="number" placeholder="Ej. 5.50" step="0.01">
+<button onclick="calcularCosto()">Calcular costo</button>
+<div id="costoResult" class="result"></div>
+</div>
+
+</section>
+
+<div class="ad">📢 PUBLICIDAD<br><span class="small">Espacio disponible para futuros anunciantes.</span></div>
+
+<section id="ganado">
+<h2>🐄 Ganado</h2>
+<div class="grid">
+<div class="card"><h3>🥩 Bovinos</h3><p>Información básica sobre alimentación, manejo, peso y cuidados preventivos.</p></div>
+<div class="card"><h3>🐮 Manejo</h3><p>El manejo tranquilo ayuda a reducir el estrés y facilita el trabajo con los animales.</p></div>
+<div class="card"><h3>🩺 Salud</h3><p>Observa diariamente apetito, comportamiento, condición corporal y cualquier cambio fuera de lo normal.</p></div>
+</div>
+</section>
+
+<section id="productos">
+<h2>🛒 Productos recomendados</h2>
+<p class="small">Esta sección puede utilizarse posteriormente para enlaces de afiliados o negocios relacionados con el campo.</p>
+<div class="grid">
+<div class="card product"><h3>🪢 Equipo para ganado</h3><p>Espacio para recomendar productos de manejo.</p><button onclick="alert('Próximamente podrás agregar un enlace de producto.')">Ver producto</button></div>
+<div class="card product"><h3>🌾 Alimentación</h3><p>Espacio para recomendar herramientas o productos para alimentación.</p><button onclick="alert('Próximamente podrás agregar un enlace de producto.')">Ver producto</button></div>
+<div class="card product"><h3>🧰 Herramientas</h3><p>Espacio para productos útiles para el rancho.</p><button onclick="alert('Próximamente podrás agregar un enlace de producto.')">Ver producto</button></div>
+</div>
+</section>
+
+<section id="consejos">
+<h2>💡 Consejos</h2>
+<div class="grid">
+<div class="card"><h3>💧 Agua</h3><p>Procura que los animales tengan acceso constante a agua limpia y adecuada para consumo.</p></div>
+<div class="card"><h3>🌱 Alimentación</h3><p>Los requerimientos cambian según edad, peso, etapa productiva y condiciones del animal.</p></div>
+<div class="card"><h3>👀 Observación</h3><p>Revisar regularmente al ganado permite detectar cambios y solicitar atención profesional cuando sea necesario.</p></div>
+</div>
+</section>
+
+<section id="contacto" class="hero">
+<h2>📱 Contacto</h2>
+<p>¿Quieres anunciar un producto o colaborar con Rancho Fácil?</p>
+<button onclick="alert('Aquí podrás colocar tu número o enlace de WhatsApp.')">Contactar</button>
+</section>
+
+<p class="small"><strong>Nota:</strong> Las calculadoras son estimaciones sencillas con fines educativos. No sustituyen la valoración de un médico veterinario o especialista en nutrición animal.</p>
+
+</main>
+
+<footer>
+<p>🐄 Rancho Fácil V4</p>
+<p>Contenido educativo para apoyar el trabajo del campo.</p>
+</footer>
+
+<script>
+function mostrar(id,texto){
+ const el=document.getElementById(id);
+ el.innerHTML=texto;
+ el.style.display="block";
+}
+function calcularPeso(){
+ const pecho=parseFloat(document.getElementById("pecho").value);
+ const largo=parseFloat(document.getElementById("largo").value);
+ if(pecho>0 && largo>0){
+   const peso=(pecho*pecho*largo)/10840;
+   mostrar("pesoResult","Peso estimado: "+peso.toFixed(1)+" kg");
+ }else alert("Ingresa valores válidos.");
+}
+function calcularAlimento(){
+ const peso=parseFloat(document.getElementById("pesoAlimento").value);
+ const ms=parseFloat(document.getElementById("ms").value);
+ if(peso>0 && ms>0){
+   const alimento=peso*ms/100;
+   mostrar("alimentoResult","Materia seca estimada: "+alimento.toFixed(1)+" kg/día");
+ }else alert("Ingresa valores válidos.");
+}
+function calcularCosto(){
+ const kg=parseFloat(document.getElementById("kgDia").value);
+ const precio=parseFloat(document.getElementById("precioKg").value);
+ if(kg>0 && precio>0){
+   const diario=kg*precio;
+   const mensual=diario*30;
+   mostrar("costoResult","Costo diario: $"+diario.toFixed(2)+"<br>Costo aproximado en 30 días: $"+mensual.toFixed(2));
+ }else alert("Ingresa valores válidos.");
+}
+</script>
+
+</body>
+</html>
