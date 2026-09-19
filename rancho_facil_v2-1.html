@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rancho Fácil: información práctica sobre ganado, alimentación, manejo y herramientas para productores.">
+<title>Rancho Fácil | Ganado y campo</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7f2;color:#24351f;line-height:1.6}
+header{background:#294a2b;color:white;padding:30px 18px;text-align:center}header h1{margin:0;font-size:38px}header p{margin:8px 0 0;font-size:17px}
+nav{position:sticky;top:0;z-index:10;display:flex;justify-content:center;flex-wrap:wrap;gap:7px;background:#183821;padding:10px}
+nav a{color:white;text-decoration:none;padding:9px 13px;border-radius:8px}nav a:hover{background:#294a2b}
+.hero{max-width:1050px;margin:28px auto;padding:42px 22px;text-align:center;background:white;border-radius:18px;box-shadow:0 4px 18px #0001}
+.hero h2{font-size:32px;margin:0 0 10px}.hero p{font-size:18px;max-width:760px;margin:auto}
+.container{max-width:1050px;margin:auto;padding:0 15px}h2.section-title{text-align:center;margin:35px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}.card{background:white;padding:22px;border-radius:15px;box-shadow:0 3px 12px #0001}.card h3{margin-top:0}.icon{font-size:35px}
+.tip{background:#e8f3e4;border-left:5px solid #294a2b;padding:14px;border-radius:8px;margin-top:12px}
+.calculator{max-width:650px;margin:38px auto;background:white;padding:25px;border-radius:18px;box-shadow:0 4px 18px #0001}
+label{display:block;margin-top:12px;font-weight:bold}input,textarea{width:100%;padding:12px;margin-top:6px;border:1px solid #bbb;border-radius:8px;font-size:16px}
+button{margin-top:18px;width:100%;padding:13px;border:0;border-radius:9px;background:#294a2b;color:white;font-size:17px;cursor:pointer}
+.resultado{margin-top:18px;padding:15px;background:#eef6ea;border-radius:10px;font-weight:bold}.notice{font-size:13px;color:#666}
+.ad-space{min-height:90px;border:2px dashed #bbb;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#777;margin:30px auto;max-width:900px}
+footer{margin-top:45px;background:#183821;color:white;text-align:center;padding:28px 18px}
+@media(max-width:600px){header h1{font-size:30px}.hero h2{font-size:25px}}
+</style>
+</head>
+<body>
+<header><h1>🐄 Rancho Fácil</h1><p>Información práctica para el cuidado y manejo del ganado</p></header>
+<nav>
+<a href="#inicio">Inicio</a><a href="#ganado">Ganado</a><a href="#alimentacion">Alimentación</a><a href="#salud">Salud</a><a href="#calculadora">Calculadoras</a><a href="#consejos">Consejos</a><a href="#contacto">Contacto</a>
+</nav>
+<main id="inicio">
+<section class="hero"><h2>Todo más fácil para el rancho 🌱</h2><p>Información sencilla, herramientas y consejos para productores y personas que trabajan con ganado.</p></section>
+<div class="container">
+<div class="ad-space">Espacio para publicidad — próximamente</div>
+
+<h2 class="section-title" id="ganado">🐂 Ganado</h2>
+<div class="grid">
+<article class="card"><div class="icon">🐄</div><h3>Ganado bovino</h3><p>Aspectos básicos de manejo, identificación, alimentación y cuidados generales.</p></article>
+<article class="card"><div class="icon">🐮</div><h3>Terneros</h3><p>La observación diaria ayuda a detectar cambios de comportamiento, apetito y condición general.</p></article>
+<article class="card"><div class="icon">🌾</div><h3>Manejo del potrero</h3><p>Agua, pasto y organización del terreno son elementos importantes del manejo.</p></article>
+</div>
+
+<h2 class="section-title" id="alimentacion">🌾 Alimentación</h2>
+<div class="grid">
+<article class="card"><h3>Forrajes</h3><p>Los pastos y otros forrajes son una base importante de la alimentación de muchos bovinos.</p></article>
+<article class="card"><h3>Agua</h3><p>El ganado necesita acceso constante a agua limpia. Las necesidades cambian según clima, dieta y etapa.</p></article>
+<article class="card"><h3>Suplementos</h3><p>Los suplementos deben utilizarse según las necesidades del animal y con orientación profesional cuando corresponda.</p></article>
+</div>
+
+<h2 class="section-title" id="salud">🩺 Salud y prevención</h2>
+<div class="grid">
+<article class="card"><h3>Observación diaria</h3><p>Revisa apetito, comportamiento, movilidad y aspecto general. Un cambio repentino merece atención.</p></article>
+<article class="card"><h3>Prevención</h3><p>Mantener instalaciones, agua y alimentación en buenas condiciones ayuda a reducir problemas de manejo.</p></article>
+<article class="card"><h3>Veterinario</h3><p>Para enfermedades, medicamentos, dosis, heridas importantes o animales en riesgo, consulta a un veterinario.</p></article>
+</div>
+<div class="tip">💡 <strong>Consejo:</strong> Llevar registros de peso, tratamientos, vacunas, reproducción y producción puede ayudarte a organizar mejor el rancho.</div>
+
+<section class="calculator" id="calculadora">
+<h2>🧮 Calculadora de materia seca</h2><p>Herramienta educativa. No sustituye una ración formulada por un profesional.</p>
+<label for="peso">Peso del animal (kg)</label><input id="peso" type="number" min="1" placeholder="Ej. 450">
+<label for="porcentaje">Materia seca estimada (%)</label><input id="porcentaje" type="number" min="1" max="10" step="0.1" value="2.5">
+<button onclick="calcular()">Calcular</button><div id="resultado" class="resultado">Introduce los datos para obtener una estimación.</div>
+<p class="notice">Fórmula educativa: peso × porcentaje ÷ 100.</p>
+</section>
+
+<h2 class="section-title" id="consejos">📋 Consejos para el rancho</h2>
+<div class="grid">
+<article class="card"><h3>1. Revisa el agua</h3><p>Comprueba que los bebederos estén disponibles, limpios y funcionando.</p></article>
+<article class="card"><h3>2. Observa al ganado</h3><p>Una revisión frecuente facilita detectar cambios antes de que se conviertan en un problema mayor.</p></article>
+<article class="card"><h3>3. Registra información</h3><p>Anota fechas, pesos, nacimientos, tratamientos y otros datos importantes.</p></article>
+<article class="card"><h3>4. Pide orientación</h3><p>Ante problemas de salud o decisiones de alimentación, busca asesoría veterinaria o zootécnica.</p></article>
+</div>
+
+<h2 class="section-title" id="contacto">📩 Contacto</h2>
+<section class="card"><p>¿Tienes una sugerencia para Rancho Fácil? Este espacio puede conectarse después a un correo o servicio de formularios.</p>
+<textarea rows="4" placeholder="Tu sugerencia..."></textarea>
+<button onclick="alert('Gracias por tu sugerencia. El formulario de envío se puede conectar después.')">Enviar sugerencia</button></section>
+<div class="ad-space">Espacio para publicidad — próximamente</div>
+</div></main>
+<footer><p>🐄 Rancho Fácil © 2026</p><p><small>Contenido educativo. Para casos de salud animal, consulta a un profesional veterinario.</small></p></footer>
+<script>
+function calcular(){
+const peso=parseFloat(document.getElementById('peso').value), porcentaje=parseFloat(document.getElementById('porcentaje').value), r=document.getElementById('resultado');
+if(!peso||!porcentaje||peso<=0||porcentaje<=0){r.textContent='Escribe un peso y un porcentaje válidos.';return;}
+r.textContent='Estimación: '+(peso*porcentaje/100).toFixed(2)+' kg de materia seca al día.';
+}
+</script>
+</body></html>
